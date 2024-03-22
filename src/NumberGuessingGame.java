@@ -9,18 +9,22 @@ public class NumberGuessingGame {
         int randomNumber = rand.nextInt(100) + 1;
 //        System.out.println("Random number is: "+randomNumber);
 
-        while (true){
+        int tryCount = 0;
+        while (true) {
             System.out.println("Enter your guess(1-100):");
             int playerGuess = scanner.nextInt();
+            tryCount++;
 
-            if(playerGuess == randomNumber){
+            if (playerGuess == randomNumber) {
                 System.out.println("Correct, genius");
-            } else if (playerGuess>randomNumber) {
+                System.out.println("It took you " + tryCount + " times to win");
+                break; // Exit the loop when the correct guess is made
+            } else if (playerGuess > randomNumber) {
                 System.out.println("It is higher than the actual number");
-            }
-            else {
+            } else {
                 System.out.println("It is lower than the actual number");
             }
         }
+        scanner.close();
     }
 }
