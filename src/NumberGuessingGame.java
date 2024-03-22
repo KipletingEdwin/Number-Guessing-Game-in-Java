@@ -5,13 +5,22 @@ public class NumberGuessingGame {
 
     public static void main(String[] args) {
         Random rand = new Random();
-        int randomNumber = rand.nextInt(100) + 1;
-
-        System.out.println("Enter your guess(1-100):");
         Scanner scanner = new Scanner(System.in);
-        int playerGuess = scanner.nextInt();
+        int randomNumber = rand.nextInt(100) + 1;
+//        System.out.println("Random number is: "+randomNumber);
 
+        while (true){
+            System.out.println("Enter your guess(1-100):");
+            int playerGuess = scanner.nextInt();
+
+            if(playerGuess == randomNumber){
+                System.out.println("Correct, genius");
+            } else if (playerGuess>randomNumber) {
+                System.out.println("It is higher than the actual number");
+            }
+            else {
+                System.out.println("It is lower than the actual number");
+            }
+        }
     }
-
-
 }
